@@ -1,7 +1,13 @@
+export type TableParams = {
+  page: number;
+  sort?: string;
+  dir: "asc" | "desc";
+};
+
 export function getTableParams(
   searchParams: Record<string, string | string[] | undefined>,
   prefix: string
-) {
+): TableParams {
   const pageRaw = searchParams[`${prefix}_page`];
   const sortRaw = searchParams[`${prefix}_sort`];
   const dirRaw = searchParams[`${prefix}_dir`];
