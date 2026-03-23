@@ -37,11 +37,11 @@ export default async function CaptionsPage() {
                 <TableRow key={caption.id}>
                   <TableCell className="max-w-[420px]">{caption.text}</TableCell>
                   <TableCell>
-                    {caption.images?.url ? (
+                    {caption.images?.[0]?.url ? (
                       <div className="h-12 w-12 overflow-hidden rounded-md border border-border bg-secondary">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
-                          src={caption.images.url}
+                          src={caption.images[0].url}
                           alt="Image"
                           className="h-full w-full object-cover"
                         />
