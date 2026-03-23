@@ -2,14 +2,27 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, Users, Images, Captions } from "lucide-react";
+import {
+  LayoutDashboard,
+  Users,
+  Images,
+  Captions,
+  Sparkles,
+  FileText,
+  Bot,
+  Settings
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
   { href: "/admin/stats", label: "Dashboard", icon: LayoutDashboard },
   { href: "/admin/users", label: "Users", icon: Users },
   { href: "/admin/images", label: "Images", icon: Images },
-  { href: "/admin/captions", label: "Captions", icon: Captions }
+  { href: "/admin/humor", label: "Humor", icon: Sparkles },
+  { href: "/admin/terms", label: "Terms", icon: FileText },
+  { href: "/admin/captions", label: "Captions", icon: Captions },
+  { href: "/admin/llm", label: "LLM", icon: Bot },
+  { href: "/admin/settings", label: "Settings", icon: Settings }
 ];
 
 export function Sidebar() {

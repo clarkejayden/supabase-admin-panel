@@ -43,3 +43,5 @@ out/
 .env.*
 !.env.example
 src/Main.java
+
+.vercel
