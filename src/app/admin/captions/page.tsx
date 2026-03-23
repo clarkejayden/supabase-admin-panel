@@ -250,7 +250,7 @@ export default async function CaptionsPage({
                   href={`/admin/captions?edit_examples=${row.id}`}
                   className="rounded-full border border-border px-3 py-1 text-xs text-muted-foreground transition hover:brightness-110"
                 >
-                  Edit {row.id}
+                  Edit {String(row.id)}
                 </Link>
                 <JsonDeleteForm table="caption_examples" id={String(row.id)} />
               </div>

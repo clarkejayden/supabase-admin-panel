@@ -170,7 +170,7 @@ export default async function LlmPage({
                   href={`/admin/llm?edit_providers=${row.id}`}
                   className="rounded-full border border-border px-3 py-1 text-xs text-muted-foreground transition hover:brightness-110"
                 >
-                  Edit {row.id}
+                  Edit {String(row.id)}
                 </Link>
                 <JsonDeleteForm table="llm_providers" id={String(row.id)} />
               </div>
@@ -215,7 +215,7 @@ export default async function LlmPage({
                   href={`/admin/llm?edit_models=${row.id}`}
                   className="rounded-full border border-border px-3 py-1 text-xs text-muted-foreground transition hover:brightness-110"
                 >
-                  Edit {row.id}
+                  Edit {String(row.id)}
                 </Link>
                 <JsonDeleteForm table="llm_models" id={String(row.id)} />
               </div>

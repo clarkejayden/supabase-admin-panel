@@ -151,7 +151,7 @@ export default async function SettingsPage({
                   href={`/admin/settings?edit_domains=${row.id}`}
                   className="rounded-full border border-border px-3 py-1 text-xs text-muted-foreground transition hover:brightness-110"
                 >
-                  Edit {row.id}
+                  Edit {String(row.id)}
                 </Link>
                 <JsonDeleteForm table="allowed_signup_domains" id={String(row.id)} />
               </div>
@@ -199,7 +199,7 @@ export default async function SettingsPage({
                   href={`/admin/settings?edit_emails=${row.id}`}
                   className="rounded-full border border-border px-3 py-1 text-xs text-muted-foreground transition hover:brightness-110"
                 >
-                  Edit {row.id}
+                  Edit {String(row.id)}
                 </Link>
                 <JsonDeleteForm table="whitelisted_email_addresses" id={String(row.id)} />
               </div>
