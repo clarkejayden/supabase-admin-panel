@@ -15,7 +15,21 @@ export function createClient() {
         getAll() {
           return cookieStore.getAll();
         },
-        setAll(cookiesToSet) {
+        setAll(
+          cookiesToSet: Array<{
+            name: string;
+            value: string;
+            options?: {
+              domain?: string;
+              expires?: Date;
+              httpOnly?: boolean;
+              maxAge?: number;
+              path?: string;
+              sameSite?: "lax" | "strict" | "none";
+              secure?: boolean;
+            };
+          }>
+        ) {
           // Server Components cannot mutate cookies. Ignore refresh writes here.
           cookiesToSet.forEach(() => {});
         }
