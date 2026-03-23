@@ -11,6 +11,13 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 
 const PAGE_SIZE = 10;
 
+type CaptionRow = {
+  id: string;
+  text: string | null;
+  image_id: string | null;
+  images?: { url: string } | { url: string }[] | null;
+};
+
 export default async function CaptionsPage({
   searchParams
 }: {
@@ -28,6 +35,7 @@ export default async function CaptionsPage({
     .select("id,text,image_id,images(url)", { count: "exact" })
     .order(captionsParams.sort ?? "id", { ascending: captionsParams.dir === "asc" })
     .range((captionsParams.page - 1) * PAGE_SIZE, captionsParams.page * PAGE_SIZE - 1);
+  const captionRows = (captions ?? []) as CaptionRow[];
 
   const [requests, examples] = await Promise.all([
     fetchTablePage({
@@ -117,7 +125,7 @@ export default async function CaptionsPage({
         </p>
       </div>
       <TableCard title="Caption List" description="Read-only caption entries.">
-        {(captions ?? []).length === 0 ? (
+        {captionRows.length === 0 ? (
           <div className="rounded-2xl border border-dashed border-border bg-secondary/40 px-4 py-6 text-sm text-muted-foreground">
             No captions available.
           </div>
@@ -155,7 +163,7 @@ export default async function CaptionsPage({
               </TableRow>
             </TableHeader>
             <TableBody>
-              {(captions ?? []).map((caption) => {
+              {captionRows.map((caption) => {
                 const imageUrl = Array.isArray(caption.images)
                   ? caption.images[0]?.url
                   : caption.images?.url;
